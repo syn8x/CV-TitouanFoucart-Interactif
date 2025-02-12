@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Interactif</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://c.wallhere.com/photos/72/76/Hytale_RPG_video_games_video_game_art-1757337.jpg!d') no-repeat center center fixed;
+            background-size: cover;
+            color: #000;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        /* Flou sur le fond */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            filter: blur(10px); /* Applique un flou sur le fond */
+            z-index: -1;
+        }
+        
+        .container {
+            width: 900px;
+            background: rgba(196, 164, 132, 0.75);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            margin-left: 10%;
+            margin-top: 10vh;
+            min-height: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            height: 300px;
+        }
+        .profile-img {
+            width: 190px;
+            height: 253px;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        .info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .info h3 {
+            font-size: 16px;
+        }
+        .info p {
+            font-size: 14px;
+            font-style: italic;
+        }
+        .tabs {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .section {
+            background: rgba(160, 120, 100, 0.9);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .arrow {
+            transition: transform 0.3s;
+        }
+        .content {
+            display: none;
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://i.ibb.co/WYzPkYT/image-cv-attente.jpg" alt="Photo de profil" class="profile-img">
+            <div class="info">
+                <h1>Titouan Foucart</h1>
+                <h3>Niveau d'étude : Bac +1</h3>
+                <p>Depuis petit passionné par les jeux-vidéos, le game design et le level design, j'ai acquis maintenant une grande expérience en auto-didacte. Malgré tout, je reste curieux et avide de connaissance dans la conception de jeu vidéo. Étant créatif et persévérant, j’aime imaginer des univers et histoires interactifs, ainsi que travailler sur des expériences immersives.</p>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <div class="section" onclick="toggleContent('etudes', this)">📚 Études <span class="arrow">▶</span></div>
+            <div id="etudes" class="content">- Licence en Game Design à [Nom de l'école] <br>- Master en Game Design à [Nom de l'université]</div>
+            
+            <div class="section" onclick="toggleContent('competences', this)">🎮 Compétences <span class="arrow">▶</span></div>
+            <div id="competences" class="content">- Level Design, UX/UI <br>- Scénario interactif, Game Mechanics</div>
+            
+            <div class="section" onclick="toggleContent('experience', this)">💼 Expérience <span class="arrow">▶</span></div>
+            <div id="experience" class="content">- Stage en Game Design chez [Studio] <br>- Projet de jeu indépendant</div>
+            
+            <div class="section" onclick="toggleContent('projets', this)">🚀 Projets <span class="arrow">▶</span></div>
+            <div id="projets" class="content">- Création d’un jeu en équipe <br>- Prototype de level design interactif</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(id, element) {
+            var content = document.getElementById(id);
+            var arrow = element.querySelector('.arrow');
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block";
+                arrow.style.transform = "rotate(90deg)";
+            } else {
+                content.style.display = "none";
+                arrow.style.transform = "rotate(0deg)";
+            }
+        }
+    </script>
+</body>
+</html>
